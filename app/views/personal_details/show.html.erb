@@ -19,6 +19,7 @@
  <% if user.images.attached? %>
  <% user.images.each do |image|%>
  <td> <%= image_tag image, :size => "100x100" %></td>
+ 
  <% end %>
 <% end %>
  <td><%= button_to "Update", "update_user/#{user.id}", method: :get %></td>
