@@ -1,0 +1,22 @@
+<%= form_with url: "updating/#{@user.id}", method: :get, local: true do |form| %>
+<%= form.label :name, "Update Your Name:" %>
+  <%= form.text_field :name , value: @user.name%><br><br>
+  <%= form.label :phone, "Update your phone number:" %>
+  <%= form.text_field :phone, value: @user.phone %><br><br>
+  <%= form.label :address, "Update Your address:" %>
+  <%= form.text_field :address, value: @user.address %><br><br>
+  <%= form.label :adhar_number, "Update Your adharcard:" %>
+  <%= form.text_field :adhar_number, value: @user.adhar_number  %><br><br>
+  <%= form.radio_button :gender, 'male' %>
+  <%= form.label :gender, 'Male', :value => 'male' %>
+  <%= form.radio_button :gender, 'female' %>
+  <%= form.label :gender, 'Female', :value => 'female' %>
+  <%= form.label :images, "Profile Photo" %>
+  <% if @user.images.attached? %>
+  <% @user.images.each do |image|%>
+  <td> <%= image_tag image, :size => "260x180" %></td>
+  <% end %>
+  <% end %>
+ <%= form.file_field :images, accept: "image/*", multiple: true,  direct_upload: true %><br><br>
+  <%= form.submit "Update"  %>
+  <% end %>

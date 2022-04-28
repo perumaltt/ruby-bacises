@@ -1,0 +1,26 @@
+
+<h1 style="text-align:center"> Here You Should Enter Your Details Correctly....</h1><br>
+<%= form_with  url: "/create", method: :get, local: true do |form| %>
+  <%= form.label :name, "Enter Your Name:" %>
+  <%= form.text_field :name %><br><br>
+  <%= form.label :phone, "Enter your phone number:" %>
+  <%= form.text_field :phone %><br><br>
+  <%= form.label :address, "Enter Your address:" %>
+  <%= form.text_field :address %><br><br>
+  <%= form.label :adhar_number, "Enter Your adharcard:" %>
+  <%= form.text_field :adhar_number  %><br><br>
+  <%= form.radio_button :gender, 'male' %>
+  <%= form.label :gender, 'Male', :value => 'male' %>
+  <%= form.radio_button :gender, 'female' %>
+  <%= form.label :gender, 'Female', :value => 'female' %><br><br>
+  <%= form.label :images, "Profile Photo" %>
+  <%= form.file_field :images, accept: "image/*", multiple: true,  direct_upload: true %><br><br>
+  <%= form.submit "Submit"  %>
+<% end %>
+
+
+
+
+
+
+ 

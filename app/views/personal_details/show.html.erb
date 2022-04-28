@@ -1,0 +1,42 @@
+<% @user.each do |user| %>
+<table>
+<tr>
+ <th>Name</th>
+ <th>Phone</th>
+ <th>Address</th>
+ <th>Gender</th>
+ <th>AdharNumber</th>
+ <th> Profie</th>
+ 
+ 
+ </tr>
+ <tr>
+ <td><%= user.name %></td>
+ <td><%= user.phone %></td>
+ <td><%= user.address %></td>
+ <td><%= user.gender %></td>
+ <td><%= user.adhar_number %></td>
+ <% if user.images.attached? %>
+ <% user.images.each do |image|%>
+ <td> <%= image_tag image, :size => "100x100" %></td>
+ <% end %>
+<% end %>
+ <td><%= button_to "Update", "update_user/#{user.id}", method: :get %></td>
+ <td><%= button_to "Detele", "delete_user/#{user.id}",data: { confirm: 'Are you sure you want to delete this item?'}, method: :get %></td>
+ <td><%= button_to "View", "view_user/#{user.id}", method: :get %></td>
+ 
+ </tr>
+ 
+  </table>
+  
+
+  
+
+<br>
+<% end %>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
